@@ -1,8 +1,15 @@
 import hashlib
+import random
+import string
 
-h = hashlib.new('sha256')
-h.update("thi".encode('utf-8'))
-print(h.hexdigest())
+N = 100
+
+def createKey() -> str:
+    return ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(N))
+
+# h = hashlib.new('sha256')
+# h.update("thi".encode('utf-8'))
+# print(h.hexdigest())
 
 def encrypt(key, msg):
     encrypted = []
